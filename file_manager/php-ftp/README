@@ -1,0 +1,25 @@
+-----------------------------------------------------
+Welcome to PHP-Ftp -- Remote File Management using PHP 
+-----------------------------------------------------
+
+This software is browser front end using PHP to implement
+File Transfer Protocol.
+
+For information on this software license, find page about GPL
+in GNU website (http://www.gnu.org). 
+
+For information on how to install this software, please
+see INSTALL file.
+
+Bugs and/or limitations:
+
+1. You can only use this software for UNIX based server.
+2. PHP-Ftp can not handle a file name which use space(s).      
+      
+Please send them to me if you find some bugs or other limitations.
+
+
+--
+Bambang Purnomosidi D. P.
+The World Wide Web Solutions Indonesia - http://3wsi.com
+bambang@3wsi.com

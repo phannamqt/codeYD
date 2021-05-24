@@ -1,0 +1,13 @@
+2014-09-19 16:32:32: serverdb.ahkhinmat.goodsync is on local network, trying direct connect at 192.168.1.200:33333
+2014-09-19 16:32:32: -- hoadon: ANALYSIS started by User on 'TAMINHKHALAP' (GoodSync 9.8.1.1)
+2014-09-19 16:32:32: gstp://serverdb.ahkhinmat.goodsync/file:///D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon [TmpDest] <=PropDels= D:\xampp\htdocs\giaidoan2\modules\vienphi\hoadon (D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon) [TmpDest], ReconnectSecs=120
+2014-09-19 16:32:33: L: Files: 12 (excluded ). Folders:  (excluded 1). SERVERDB D: NTFS, Free: 57,1 GB, Total: 132 GB
+2014-09-19 16:32:33: R: Files: 12 (excluded ). Folders:  (excluded 1). D: NTFS, Free: 117 GB, Total: 166 GB
+2014-09-19 16:32:33: Changes: 1, Conflicts: , CopyTime: , CopyState: /, Errors: 
+2014-09-19 16:32:33: Right to Left: Copy File: 1 
+2014-09-19 16:32:33: -- Analysis Completed. Time 00:00:05, Speed: 2 files/s
+2014-09-19 16:32:33: 
+2014-09-19 17:09:17: serverdb.ahkhinmat.goodsync is on local network, trying direct connect at 192.168.1.200:33333
+2014-09-19 17:09:17: 19/09/2014 5:09:17 CH: Paused
+2014-09-19 17:09:24: Checking root folder: stopped by User Request
+2014-09-19 17:09:24: 

@@ -1,0 +1,171 @@
+<?php
+$loi=0;
+$error='';
+$data= new SQLServer;//tao lop ket noi SQL
+$begin_tran=$data->begin_tran();
+	$params_select = array($_GET['maphieugop']);//tao param cho store 
+	$store_name_select="{call GD2_GetPhieuXuatDieuChuyenByMaPhieuGop(?)}";//tao bien khai bao store
+	$get_select=$data->query( $store_name_select,$params_select);//Goi store
+	$excute_select= new SQLServerResult($get_select);//Ket noi lop xu ly SQL và truyen gia tri tra ve tu lop ket noi SQL
+	$tam_select= $excute_select->get_as_array();//Tra ve mang toan bo data lay duoc 
+	foreach ($tam_select as $row_select){
+
+		$id_xuatkho='';
+		$date = date('Y-m-d H:i:s');
+		$id_xuatkho='';
+			$params4 = array(
+			'',//  @MaPhieu nvarchar(50),
+			$date,//   @NgayLapPhieu datetime,
+			$date,//   @NgayXuat datetime,
+			-1,//   @ID_NCC int,
+			$_SESSION["user"]["id_user"],//   @ID_NhanVien int,
+			'',//   @TenKhachHang nvarchar(50),
+			0,//   @PercentVAT int,
+			0,//   @TienVAT decimal(18,1),
+			0,//   @ChietKhau decimal(18,0),
+			0,//   @IsPercent bit,
+			0,//   @ThanhTien decimal(18,0),
+			'',//   @GhiChu nvarchar(200),
+			$row_select['TuKho'],//   @ID_Kho int,
+			88,//   @ID_LoaiNhapXuat int,
+			'',//   @IDDonThuoc int,
+			0,//   @DaThanhToan bit,
+			$row_select['ID_NguoiDuyetXuat'],//   @ID_NguoiDuyet int,
+			$date,//   @NgayDuyet smalldatetime,
+			0,//   @IsXuatChoToaTam bit,
+			2014,//   @Year int,
+			-3,//   @ID_NhapKho int,
+			array($id_xuatkho, SQLSRV_PARAM_OUT,SQLSRV_PHPTYPE_INT)//   @ID_XUATKHO int out
+			);
+			
+			$store_name4="{call Gd2_PhieuXuat_Add (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			$get_danh_muc_phong_ban=$data->query( $store_name4, $params4);
+			if( !$get_danh_muc_phong_ban ){		
+				$data->rollback();
+				$loi=1;
+				return;
+			}
+			//echo ";".$id_xuatkho.";";
+	
+		$params22 = array($row_select['ID_PhieuXuatNoiBo']);//tao param cho store 
+		$store_name22="{call GD2_SelectDsThuocByID_PhieuXuatNoiBo(?)}";//tao bien khai bao store
+		$get_danh_muc_phong_ban22=$data->query( $store_name22,$params22);//Goi store
+		$excute22= new SQLServerResult($get_danh_muc_phong_ban22);//Ket noi lop xu ly SQL và truyen gia tri tra ve tu lop ket noi SQL
+		$tam= $excute22->get_as_array();//Tra ve mang toan bo data lay duoc 
+		foreach ($tam as $row){
+			if($row['ID_Thuoc']!=''){
+				$params5 = array(
+					$id_xuatkho,//		  @ID_XuatKho as int,
+					$row['ID_Thuoc'],//   @ID_Thuoc as  int,
+					convert_comma_dot_insert($row['SoLuong']),//   @SoLuong as decimal(18,0),
+					0,//$value['dongia'],//   @DonGia as  decimal(18,0),
+					0,//   @ChietKhau as  decimal(18,0),
+					0,//   @InLabel as  bit,
+					$row_select['TuKho'],//   @ID_KHo as int,
+					$date,//   @NgayXuat as Date,
+					array($error, SQLSRV_PARAM_OUT,SQLSRV_PHPTYPE_INT),//   @Number_ERR as Bit output,
+					0,//   @PT_VAT as int,
+					0,//   @ThanhTien decimal(18,0), 
+					0//   @Tien_Vat as int
+					);
+				$store_name5="{call GD2_PhieuXuat_CT_Add (?,?,?,?,?,?,?,?,?,?,?,?)}";	 
+				$get_danh_muc_phong_ban=$data->query( $store_name5, $params5);	
+				if( !$get_danh_muc_phong_ban ){		
+				
+					$data->rollback();
+					$loi=1;
+					return;
+				}
+				if($error==1){
+					$data->rollback();
+					$loi=1;
+					echo "1;".$row['TenGoc'].';1;';	
+					return;
+				}
+			}	
+		}
+		
+		if($id_xuatkho!=''){
+			$solo='';
+			$id_nhapkhoct='';
+			$date = date('Y-m-d H:i:s');
+			$id_nhapkho='';
+			$params5 = array(
+				'',//@MaPhieu varchar(5),  
+				$date,//@NgayNhapKho  varchar(20),
+				$row_select['DenKho'],//@ID_Kho int,
+				'',//@ID_NCC int,       
+				$_SESSION["user"]["id_user"],//@ID_NguoiDuyet int,
+				$date,//@NgayDuyet  varchar(20),
+				88,//@ID_NhapXuat int,
+				$_SESSION["user"]["id_user"],//@ID_Nhanvien int,
+				'',//@SoHopDong varchar(30),
+				'',//@SoDonDatHang int,
+				0,//@ThanhTien decimal(18, 0),
+				0,//@PhanTramVat decimal(18, 2),
+				0,//@TienVAT decimal(18, 2),
+				'',//@SoHoaDon nvarchar(50),
+				NULL,//@NgayHoaDon  varchar(20),       
+				'',//@GhiChu nvarchar(200),
+				$id_xuatkho,
+				$_SESSION["user"]["id_user"],//@IdUser_Login int,  
+			array($id_nhapkho, SQLSRV_PARAM_OUT,SQLSRV_PHPTYPE_INT)//   @ID_XUATKHO int out
+			);
+
+			$store_name5="{call GD2_XuatDieuChuyen_PhieuNhap_Add (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+			$get_danh_muc_phong_ban5=$data->query( $store_name5, $params5);
+			if( !$get_danh_muc_phong_ban5 ){		
+				$data->rollback();
+				$loi=1;
+				return;
+			}
+			$store_name_taolo="{call GD2_TaoLoHeThongPhieuNhapChitiet (?,?) }";//tao bien khai bao store
+			$params_taolo = array(array($_SESSION["user"]["year_work"]),array($solo,SQLSRV_PARAM_OUT,SQLSRV_PHPTYPE_STRING (SQLSRV_ENC_CHAR),SQLSRV_SQLTYPE_VARCHAR(50)) );
+			$get_solo=$data->query( $store_name_taolo, $params_taolo);
+			
+			$params22 = array($id_xuatkho);//tao param cho store 
+			$store_name22="{call GD2_GetPhieuXuatChiTietByID_XuatKho(?)}";//tao bien khai bao store
+			$get_danh_muc_phong_ban22=$data->query( $store_name22,$params22);//Goi store
+			$excute22= new SQLServerResult($get_danh_muc_phong_ban22);//Ket noi lop xu ly SQL và truyen gia tri tra ve tu lop ket noi SQL
+			$tam= $excute22->get_as_array();//Tra ve mang toan bo data lay duoc 
+			foreach ($tam as $row){
+				if($row['NgayHetHan']!=''){
+					$row['NgayHetHan']=$row['NgayHetHan']->format("Y-m-d");
+				}
+				$params6 = array(
+					$row['ID_Thuoc'],//@ID_Thuoc int,
+					$row['SoLoNhaSanXuat'],//@SoLoNhaSanXuat varchar(52),    
+					$row['SoLuong'],//@SoLuong int,
+					$row['DonGiaVon'],//@DonGia decimal(18, 2),
+					$row['TienVon'],//@ThanhTien decimal(18, 0),
+					NULL,//@NgaySanXuat varchar(20),
+					$row['NgayHetHan'],//@NgayHetHan varchar(20),  
+					$solo,//@SoLoHeThong varchar(20), 
+					$id_nhapkho,//@ID_NhapKho int, 
+					2014,//@Year INT,
+					$_SESSION["user"]["id_user"],//@IdUser_Login INT,  
+				array($id_nhapkhoct, SQLSRV_PARAM_OUT,SQLSRV_PHPTYPE_INT)//   @ID_XUATKHO int out
+				);
+				
+				$store_name6="{call Gd2_PhieuNhapChiTiet_Add (?,?,?,?,?,?,?,?,?,?,?,?)}";
+				$get_danh_muc_phong_ban6=$data->query( $store_name6, $params6);
+				if( !$get_danh_muc_phong_ban6 ){		
+					$data->rollback();
+					$loi=1;
+					return;
+				}
+			}
+		}	
+		
+		$params6 = array($row_select['ID_PhieuXuatNoiBo'],$id_xuatkho,$id_nhapkho);
+		$store_name6="{call GD2_PhieuXuatNoiBo_Update_XuatKho (?,?,?)}";	 
+		$get_update=$data->query( $store_name6, $params6);	
+		if( !$get_update ){		 	
+			$data->rollback();
+			$loi=1;
+			return;
+		}
+	}
+$data->commit();
+return;
+?>

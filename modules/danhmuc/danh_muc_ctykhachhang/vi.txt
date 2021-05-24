@@ -1,0 +1,11 @@
+﻿
+
+dm_KH_KhamSK=Danh mục khách hàng khám sức khỏe
+tencongty=Tên công ty
+maVT=Mã viết tắt
+diachi=Địa chỉ
+dienthoai=Điện thoại
+sotaikhoan=Số tài khoản
+idNganHang=ID ngân hàng
+nguoilienhe=Người liên hệ
+diachinguoilienhe=Đia chỉ người liên hệ

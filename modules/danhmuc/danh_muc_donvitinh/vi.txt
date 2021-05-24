@@ -1,0 +1,4 @@
+﻿
+dm_DVT=Danh mục đơn vị tính
+tenDVT=Tên đơn vị tính
+manhom=Mã nhóm

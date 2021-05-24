@@ -1,0 +1,52 @@
+
+                        PHP-Ftp INSTALLATION
+			
+Very simple to install.
+Extract the archive into one directory under your DocumentRoot
+
+Example:
+
+If you set your DocumentRoot directive in your httpd.conf file
+to var/www/ then:
+
+1. Create new directory in /var/www, for example: php-ftp using:
+
+   yourmachine:/var/www# mkdir php-ftp
+   yourmachine:/var/www# cd php-ftp
+   
+3. Copy php-ftp tar ball into that directory:
+
+   yourmachine:/var/www/php-ftp# cp /tmp/php-ftp-version.tar.gz .
+   
+   Assuming php-ftp tar ball is in directory /tmp
+   
+2. Extract php-ftp-version.tar.gz into directory php-ftp:
+
+   yourmachine:/var/www/php-ftp# gunzip php-ftp-varsion.tar.gz
+   yourmachine:/var/www/php-ftp# tar -xvf php-ftp-version.tar
+   
+That's all.
+
+To run PHP-Ftp, point your browser to:
+
+                   http://yourmachine/php-ftp
+
+For security reasons, it is better to use mod_ssl for PHP-Ftp
+so that no username and password sent to ftp server in clear text.
+When you have them configured, you can point your browser to:
+
+                   https://yourmachine/php-ftp
+		   
+Prerequisites:
+
+1. Fully functioning Apache web server
+2. Fully functioning PHP4, should be compiled with --enable-ftp 
+3. There is index.php in your DirectoryIndex directive
+
+Well, if you don't use Apache web server, make your own installation.
+
+--
+Bambang Purnomosidi D. P.
+The World Wide Web Solutions Indonesia - http://3wsi.com
+bambang@3wsi.com
+

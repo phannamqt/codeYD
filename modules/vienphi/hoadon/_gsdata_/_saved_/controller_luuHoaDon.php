@@ -1,0 +1,100 @@
+<?php
+
+
+$data= new SQLServer;//tao lop ket noi SQL
+//Th hủy
+if(isset($_GET["soHdHuy"])){
+
+	$store_name="{call GD2_HuyHoaDon (?,?)}";//tao bien khai bao store
+$params = array(
+	$_GET["_ID_HoaDonThueDiary"],
+	$_SESSION["user"]["id_user"],
+
+	);
+
+$get=$data->query( $store_name, $params);//Goi store
+
+}
+else
+  	{//còn lại là lưu hoặc thêm mới
+
+  		$id_hoadon=0;
+  		if(isset($_POST["id_soHD"])){
+  			$id_hoadon=$_POST["id_soHD"];
+  		}
+  		else
+  		{
+  			$id_hoadon=0;
+  		}
+
+
+
+
+if($id_hoadon>0)//update theo id số hóa đơn
+{
+
+
+	//echo ('dffff'.$id_hoadon);
+$store_name="{call GD2_HoaDonThueDiary_Update (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";//tao bien khai bao store
+$params = array(
+	$id_hoadon,
+	($_POST["ngayKham"]),
+	$_POST["kihieuHD"],
+	$_POST["soHD"],
+	$_POST["soTk"],
+	$_POST["nguoiLap"],
+	$_POST["tendonvi"],
+	$_POST["maST"],
+	$_POST["diachiKH"],
+	$_POST["hinhthuctt"],
+	$_POST["ghichu"],
+	$_POST["noidung"],
+	$_POST["tenKH"],
+	$_POST["phanloaiHD"],
+	$_POST["ngayHD"],
+
+	);
+//foreach ($params as $key => $value) {
+//	echo($value.'<br>' );
+//}
+//print_r($params);
+$get=$data->query( $store_name, $params);//Goi store
+}
+else// insert
+{
+	$out="";
+$store_name="{call GD2_HoaDonThueDiary_Insert (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";//tao bien khai bao store
+$params = array(
+	$_GET["ID_TTNo"],
+	$_POST["ngayKham"],
+	$_POST["kihieuHD"],
+	$_POST["soHD"],
+	$_POST["soTk"],
+	$_POST["nguoiLap"],
+	$_POST["tendonvi"],
+	$_POST["maST"],
+	$_POST["diachiKH"],
+	$_POST["hinhthuctt"],
+	$_POST["ghichu"],
+	$_POST["noidung"],
+	$_POST["tenKH"],
+	$_POST["phanloaiHD"],
+	$_POST["ngayHD"],
+	array(&$out,  SQLSRV_PARAM_OUT,SQLSRV_PHPTYPE_INT)
+	);
+
+$get=$data->query( $store_name, $params);//Goi store
+print_r($out);
+}
+
+
+
+
+
+
+
+
+
+}
+?>
+

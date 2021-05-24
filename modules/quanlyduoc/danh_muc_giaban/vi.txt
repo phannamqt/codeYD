@@ -1,0 +1,4 @@
+﻿
+dm_chucvu=Danh mục chức vụ
+tenchucvu=Tên chức vụ
+stt=STT

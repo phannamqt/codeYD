@@ -1,0 +1,24 @@
+
+phannhapdobacsy=Phần nhập do bác sỹ
+hutthuoc=Hút thuốc
+benhtimmach=Bệnh tim mạch
+tieuduong=Tiểu đường
+dieutricaohuyetap=Điều trị cao huyết áp
+amthoitrongtim=Âm thổi trong tim
+daythattrai=Dày thất trái
+sodieungay=Số điếu ngày
+benhvantim=Bệnh van tim
+rungnhi=Rung nhĩ
+dikhapkhiengcachhoi=Đi khập khiễng cách hồi
+benhmachvanh=Bệnh mạch vành
+phannhapdoyta=Phần nhập do y tá
+hatamthu=HA tâm thu
+cao=Cao(cm)
+hrate=HRate
+hatamtruong=HA tâm trương
+nang=Nặng(kg)
+pr=PR
+phannhaptudong=Phần nhập tự động
+tuoi=Tuổi
+nam=Nam
+suytim=Suy tim

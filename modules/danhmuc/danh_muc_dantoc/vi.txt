@@ -1,0 +1,4 @@
+﻿
+dm_quoctich=Danh mục dân tộc
+tenchucvu=Tên chức vụ
+stt=STT

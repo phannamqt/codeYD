@@ -1,0 +1,9 @@
+﻿
+dm_phongban=Danh mục phòng ban
+tenphongban=Tên phòng ban
+thuocphongban=Thuộc phòng ban
+dienthoai=Điện thoại
+phongchuyenmon=Phòng chuyên môn
+khuvuc=Khu vực
+congty=Công ty
+khoangcach=K/ cách đến phòng

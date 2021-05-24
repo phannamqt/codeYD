@@ -1,0 +1,517 @@
+<!--<link rel="stylesheet" href="../../../css/form_css.css" type="text/css" media="screen"/>-->
+<style type="text/css">
+  #thongtin, #hanhdong{
+	width: 100%;
+	height: 80px;
+	background-color: #F7F5F1;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	
+	  
+  }
+  #hanhdong{
+	width: 100%;
+	height: 35px;
+	background-color: #F7F5F1;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	
+	  
+  }
+  #lichhentra{
+	height: 60px;
+  }
+  .datrahs{
+	margin-left: 485px;
+	margin-top: -20px;
+	  
+  }.nguoitra{
+	margin-top: -21px;
+	margin-left: 765px;
+	  
+  }.ngayhentra{
+	margin-top: 20px;
+	  
+  }.nguoihen{
+	margin-top: -22px;
+	margin-left: 310px;
+}
+#prowed3{
+	text-align: right;
+	height: 37px;
+	  
+  }.tt{
+	float: left;
+	margin-left:5px;
+  }.gc{
+	float: right;
+
+  }
+ 
+   input{
+	   text-align:center;
+	   }
+	 th.ui-th-column div{
+        word-wrap: break-word; /* IE 5.5+ and CSS3 */
+        white-space: pre-wrap; /* CSS3 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        overflow: hidden;
+        height: auto !important;
+        vertical-align: middle;
+    }
+</style>
+<body> 
+<div id="dialog-form" >
+ Bạn có muốn xóa ngày giờ trả kết quả?
+</div>
+<div id="dialog-form-2" >
+Ngày giờ hẹn trả kết quả không được nhỏ hơn ngày giờ hiện tại
+</div>
+
+
+
+       <div class="ui-widget-content" id="panel_main" style="margin-top:7px; ">
+			<div class="thongtinchinh" style="width:99%; margin-top:5px;margin-left:4px;">
+				<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-resizable panel_form" >
+	`				<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-5" class="ui-dialog-title">Cập nhật giờ hẹn trả kết quả</span>
+    				</div>
+    				<div class="ui-dialog-content ui-widget-content"style="display: block; width: auto; min-height: 0px; max-height: none; height: 100%">
+        				<div class="patient_info">       
+        			</div>
+                    <div id="lichhentra" style="margin-top:10px">
+                		<table width='1000px'border="1" style=" border: none; margin-left:5px; ">
+			  				<tr>
+								<td width="8%" style=" border: none; ">Ngày giờ dự kiến trả KQ:</td>
+								<td width="11%" style=" border: none; "  align="right">
+                    				<input disabled type="text" id="datepicker" style="width:100px;margin-left:5px"/><input disabled type="text" id="timepicker" style="width:60px;margin-left:5px"/>
+                				</td>
+				
+								<td width="7%" style=" border: none; ">Đã trả hồ sơ vào lúc:</td>
+								<td width="14%" style=" border: none; ">
+                					<a id="clear1" class="ui-button ui-widget ui-state-default ui-button-icon-only  ui-corner-right" title="Xóa ngày giờ trả kết quả"   ><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span></a>
+                					<input disabled type="text" id="datepicker1" style="width:100px;margin-left:5px"/><input disabled type="text" id="timepicker1" style="width:60px;margin-left:5px"/>
+                    				<a id="get_datetime" class="fm-button ui-state-default ui-corner-all ui-state-disabled" style="margin-top:-1px;margin-left:3px; vertical-align:top;width:12px;height:12px;padding-left: 3px;" title="Lấy ngày giờ hiện tại" ><span class="ui-icon ui-icon-clock" style=" margin-top: -3px;"></span></a>
+                				</td>
+								<td width="12%" style=" border: none;">Người trả KQ: <label id="nguoitra"></label></td>
+
+			 			 	</tr>
+			  				<tr>
+                                <td style=" border: none; ">Ngày giờ hẹn trả KQ:</td>
+               					<td style=" border: none; "  align="right">
+                                	 <a id="clear2" class="ui-button ui-widget ui-state-default ui-button-icon-only  ui-corner-right " title="Xóa ngày giờ hẹn trả kết quả" ><span class="ui-icon ui-icon-closethick"></span></a>
+                                <input disabled type="text" id="datepicker2" style="width:100px;margin-left:5px"/><input disabled type="text" id="timepicker2" style="width:60px;margin-left:5px"/>
+                                </td>
+                                <td style=" border: none;  " colspan="3">Người hẹn: <label id="nguoihen"></label></td>
+							</tr>
+						</table>
+            		</div>
+                    <div style="margin-bottom:10px;padding-left:509px">
+                        <a  id="save" class="ui-button ui-widget ui-state-default ui-corner-all  fm-button-icon-left" > Lưu [Ctrl+S]<span class="ui-icon ui-icon-disk" ></span></a>
+                        <a  id="edit" class="ui-button ui-widget ui-state-default ui-corner-all  fm-button-icon-left "   > Chỉnh sửa<span class="ui-icon ui-icon-pencil"></span></a>
+                        <a  id="lichbacsy" class="ui-button ui-widget ui-state-default ui-corner-all  fm-button-icon-left "   > Lịch Bác sĩ<span class="ui-icon ui-icon-calculator"></span></a>
+                       
+					</div>
+                     <table id="rowed3" ></table>
+				</div>
+			</div>  
+		</div>
+     </div>
+</body>
+</html> 
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+	
+	
+	$('#save,#edit,#lichbacsy,#clear1,#clear2,#get_datetime').button();
+	
+	
+	$('#clear1,#clear2,#get_datetime').removeClass("ui-button-text-only")
+	   $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 300,
+      width: 350,
+      modal: true,
+      buttons: {
+        Cancel: function() {
+          $( this ).dialog( "close" );
+			},
+			 "ok": function() {
+			var today = new Date();	
+			var day2 = $('#datepicker2').val().split('-');
+			var time2= $('#timepicker2').val().split(':');
+			var date2 = new Date(day2[2],day2[1]-1,day2[0],time2[0],time2[1],0); //alert(date2);	
+			if($('#datepicker2').val()!=''&&date2<today)
+				$('#dialog-form-2').dialog('open');
+			else
+					
+					
+        { 
+		ID_LuotKham = rowData["ID_LuotKham"]; //alert(ID_LuotKham);
+		date_NgayGioHenTraKQ = $("#datepicker2").val();
+		time_NgayGioHenTraKQ = $("#timepicker2").val(); 
+		date_NgayGioTraKQ =   $("#datepicker1").val();
+		time_NgayGioTraKQ = $("#timepicker1").val(); 
+		$.post('pages.php?module=<?= $modules ?>&view=<?= $view ?>&action=data_hentrakq_update&ID_LuotKham='+ID_LuotKham+
+																											'&date_NgayGioHenTraKQ='+date_NgayGioHenTraKQ+
+																											'&time_NgayGioHenTraKQ='+time_NgayGioHenTraKQ+
+																											'&date_NgayGioTraKQ='+date_NgayGioTraKQ+
+																											'&time_NgayGioTraKQ='+time_NgayGioTraKQ
+																											).done(function(data)
+		{ //alert(data);
+			if ($.trim(data) == '') {
+				tooltip_message("<?php get_text1("sua_thanhcong") ?>");
+				$('#rowed3').setGridParam({loadonce: false, datatype: "json"}).trigger('reloadGrid');
+			}
+			else {
+				tooltip_message("<?php get_text1("sua_khongthanhcong") ?>");
+			}
+		});		
+		};
+		 $('#save,#clear1,#clear2,#get_datetime').button("disable");
+		  $('#edit').button("enable");
+		
+		clear1()
+		  $( this ).dialog( "close" );
+			}
+		  },
+		  
+      close: function() {
+       
+      }
+    });
+ 
+   	$( "#dialog-form-2" ).dialog({
+      autoOpen: false,
+      height: 300,
+      width: 350,
+      modal: true,
+      buttons: {
+       "Ok": function() {
+		   $('#timepicker2').val("");
+		   $('#datepicker2').val("");
+          $( this ).dialog( "close" );
+			}
+	  }//button
+	  
+    });
+//	
+	
+	
+	
+		//document.getElementById('save').style.disabled=true// ẩn nút save
+		//$('#save').attr('disabled', true);
+		load_select();
+		var d = new Date();
+ 		var curr_date = d.getDate();
+    	var curr_month = d.getMonth() + 1; //Months are zero based
+    	var curr_year = d.getFullYear();
+    	var curr =(curr_date + "-" + curr_month + "-" + curr_year);
+  		$("#datepicker").val(curr) ;
+  		$("#denngay").val(curr);
+   		$("#datepicker1,#datepicker2,#datepicker").datepicker({
+            showWeek: true,
+            defaultDate: "+1w",
+            changeMonth: true,
+            changeYear: true,
+            numberOfMonths: 1,
+            dateFormat: "dd-mm-yy",
+          
+        });
+		$.timeEntry.setDefaults({show24Hours: true});
+		$('#timepicker1, #timepicker2,#timtepicker').timeEntry({timeSteps: [1, 1, 1]});	
+  	$.dateEntry.setDefaults({spinnerImage: ''});
+	$("#datepicker1, #datepicker2,#datepicker").dateEntry({dateFormat: 'dmy-'});	
+	$("#timepicker1, #timepicker2,#timtepicker").timeEntry();
+	
+		$("#clear1").bind("click", function(e) { 
+			  	
+			$('#datepicker1').val('');
+			$('#timepicker1').val('');
+	});	
+	$("#clear2").bind("click", function(e) {     	
+		$('#datepicker2').val('');
+		$('#timepicker2').val('');
+	});	
+		
+	
+	$("#panel_main").css("height",jQuery(window).height()-50+"px");
+	$("#panel_main").css("width",jQuery(window).width()-3+"px");			 
+	$("#panel_main").fadeIn(1000);
+	$(window).resize(function() {
+		$("#panel_main").css("height",jQuery(window).height()-50+"px");
+		$("#panel_main").css("width",jQuery(window).width()-3+"px");			
+	})
+	var lastsel; 	
+		$.get( "pages.php?module=web_services&function=create_panel1&action=index", function( data ) {
+	  $( ".patient_info" ).html( data );
+	  $( ".patient_info" ).css("width", $( "#patient_info" ).width()+"css");		  
+	});
+	create_grid();
+	shortcut_key();		
+	
+		jQuery(window).resize(function() {		 
+	 $("#rowed3").setGridWidth($(window).width()-20);
+	 $("#rowed3").setGridHeight($(window).height()-$("#form_danh_muc_phong_ban").height()-150); 
+	});		//sesize co giãn window
+
+	$("#lichbacsy" ).click(function() {
+		//alert("Link");
+	});
+	
+		$("#datepicker1").focus(function() {
+			if ($("#datepicker1").val()=="")
+  				$( "#timepicker1").val("00:01");
+		});
+	
+		$( "#datepicker2").focus(function() {
+			if ($("#datepicker2").val()=="")
+  				$( "#timepicker2").val("00:01");
+		});
+	 edit();
+	 save();
+	 $('#save,#clear1,#clear2,#get_datetime').button("disable");
+	
+})
+ 
+function create_grid(){	
+
+	 $("#rowed3").jqGrid({
+		  url: 'pages.php?module=<?= $modules ?>&view=<?= $view ?>&action=data_hentrakq',
+		datatype: "json",	
+		colNames:['Id lượt khám','Tên bệnh nhân','Ngày giờ hẹn trả KQ','Ngày giờ trả kết quả','Ngày giờ dự kiến trả KQ','Người trả kết quả','Người hẹn trả kết quả'],
+		colModel:[
+			{name:'ID_LuotKham',index:'ID_LuotKham',search:false, width:"5%", editable:false,align:'right',hidden:true}, 
+			{name:'ID_BenhNhan',index:'ID_BenhNhan', width:"10%", editable:true,align:'left',hidden:true,edittype:"text"},
+			{name: 'NgayGioHenTraKQ', index: 'NgayGioHenTraKQ', search: false, width: "10%", editable: true, align: 'center', hidden: false, edittype: "text"}, 
+			{name: 'NgayGioTraKQ', index: 'NgayGioTraKQ', search: false, width: "10%", editable: true, align: 'center', hidden: false, edittype: "text"}, 
+			{name: 'NgayGioDuKienTraKQ', index: 'NgayGioDuKienTraKQ', search: false, width: "10%", editable: true, align: 'center', hidden: true, edittype: "text"}, 	
+				
+			{name:'ID_NguoiTraKQ',index:'ID_NguoiTraKQ', width:"10%", editable:true,editoptions: { value: hoten},align:'left',hidden:false,edittype:"text",formatter:'select'},
+			{name:'ID_NguoiHenTraKQ',index:'ID_NguoiHenTraKQ', width:"10%", editable:true,editoptions: { value: hoten2},align:'left',hidden:false,edittype:"text",formatter:'select'}
+				
+		],
+	//
+
+		loadonce: true,
+		scroll: 1,	
+		//rownum = false,
+		//treeGrid = false,	 
+		modal:true,	 	
+		pager: '#prowed3',	
+		rowNum: 100,
+		gridview: true,
+		pginput:false,
+		pgbuttons:false,
+		rowList:[],
+		
+		height:100,
+		width: 100,
+		viewrecords: true,	
+		ignoreCase:true,
+		shrinkToFit:true,
+		grouping: false,
+		stringResult:true,
+		sortorder: "asc",
+	
+		serializeRowData: function (postdata) { 		 	
+			//$("#rowed3").trigger("reloadGrid");		
+			//return postdata;
+		},
+		onSelectRow: function(id){		  
+		  //$("#rowed4").jqGrid().setGridParam({url:'data2_tam.php?id='+lastsel}).trigger("reloadGrid");	   
+		},
+		loadComplete: function(data) {	
+			///grid_filter_enter("#rowed3") ,//enter: chuyen con tro sang o tiếp theo	
+			ids = $('#rowed3').jqGrid('getDataIDs');    /// lấy data từ lưới, đổ vào textbox
+			window.rowData = jQuery(this).getRowData(ids[0]);
+			if(rowData["NgayGioHenTraKQ"]!=""){
+				var n = rowData["NgayGioHenTraKQ"].split(" ");
+				$("#datepicker2").val(n[1]);
+				$("#timepicker2").val(n[0]);
+			};
+			if(rowData["NgayGioDuKienTraKQ"]!=""){
+				var n = rowData["NgayGioDuKienTraKQ"].split(" ");
+				$("#datepicker").val(n[1]);
+				$("#timepicker").val(n[0]);
+			};
+			if(rowData["NgayGioTraKQ"]!=""){
+				var n = rowData["NgayGioTraKQ"].split(" ");
+				$("#datepicker1").val(n[1]);
+				if(n[0]=='00:00') {$("#timepicker1").val("");}
+				else 
+				{$("#timepicker1").val(n[0]);}
+			};			
+			var tam= hoten.split(";");
+			for (i = 0; i <tam.length; i++) 
+			{
+   				check=tam[i].split(":");
+				if(rowData["ID_NguoiTraKQ"]==check[0])
+				 	$("#nguoitra").text(check[1]); 
+				if(rowData["ID_NguoiHenTraKQ"]==check[0])
+				 	$("#nguoihen").text(check[1]);
+			}
+			//$("#nguoitra").text(rowData["ID_NguoiTraKQ"]);
+			//$("#nguoihen").text(rowData["ID_NguoiHenTraKQ"]);
+			//console.log(n[0])
+			//alert(rowData["ID_NguoiTraKQ"]);
+		},	  
+		caption: ""
+	});	
+	
+	
+	
+	 $("#rowed3").setGridWidth($(window).width()-20);
+	 $("#rowed3").setGridHeight($(window).height()-$("#form_danh_muc_loai_lich").height()-300);
+	 $("#rowed3").jqGrid('bindKeys', {"onEnter":function( rowid ) {
+		} } );	
+		$("#gbox_rowed3").attr("tabindex","1");
+		//$("#gbox_rowed3").focus();	
+		$("#gbox_rowed3").bind('keydown', function(e) {			
+			if((jwerty.is("ctrl+m",e))){		 
+				 $("#rowed3").jqGrid('restoreRow', lastsel);
+				 $("#rowed3").jqGrid('editRow', rowid, true);
+				 lastsel = rowid;
+			}
+		}) 	 
+}
+
+function load_select(){
+	window.hoten = $.ajax({url: "pages.php?module=web_services&function=get_auto_edit_hovaten&action=index", async: false, success: function(data, result) {if (!result) alert('Không load được danh mục nhân viên');}}).responseText;	
+	window.hoten2 = $.ajax({url: "pages.php?module=web_services&function=get_auto_edit_hovaten&action=index", async: false, success: function(data, result) {if (!result) alert('Không load được danh mục nhân viên');}}).responseText;		
+}
+
+function   edit(){
+	
+	$("#edit").bind("click", function(e) {    
+	//console.log('a') 	
+		
+		$("#edit").button("disable");		
+		$('#save,#clear1,#clear2,#get_datetime').button("enable");
+		$("#datepicker1").removeAttr("disabled");
+		$("#datepicker2").removeAttr("disabled");
+		$("#timepicker1").removeAttr("disabled");
+		$("#timepicker2").removeAttr("disabled");
+		
+		get_date_time();
+	});		
+}
+
+function   save(){
+		$("#save").bind("click", function(e) {  
+		
+		if($('#datepicker2').val()!=''&&rowData['NgayGioHenTraKQ']==''){
+			var today = new Date();
+			var day2 = $('#datepicker2').val().split('-');
+			var time2= $('#timepicker2').val().split(':');
+			var date2 = new Date(day2[2],day2[1]-1,day2[0],time2[0],time2[1],0);
+			if (date2<today)
+				$('#dialog-form-2').dialog('open');
+			else
+			{
+				ID_LuotKham = rowData["ID_LuotKham"]; //alert(ID_LuotKham);
+				date_NgayGioHenTraKQ = $("#datepicker2").val();
+				time_NgayGioHenTraKQ = $("#timepicker2").val(); 
+				//gọi stored
+			}
+		
+		}///////// sự kiện edit hẹn trả kq
+		if($('#datepicker1').val()!=''&&rowData['NgayGioTraKQ']==''){
+			
+		}///// sự kiện edit đã trả kết quả
+		
+		
+		
+		
+		if($('#datepicker2').val()!=''){
+			
+					var today = new Date();	 //alert(today);
+					var day2 = $('#datepicker2').val().split('-');
+					var time2= $('#timepicker2').val().split(':');
+					var date2 = new Date(day2[2],day2[1]-1,day2[0],time2[0],time2[1],0); //alert(date2);	
+					//alert(today)
+			}
+			if($('#datepicker1').val()==''&&rowData['NgayGioTraKQ']!=''){
+				
+					$('#dialog-form').dialog('open')
+			}else if($('#datepicker2').val()!=''&&date2<today){
+			//alert();
+						$('#dialog-form-2').dialog('open')				
+			}
+			else{  	
+			
+		ID_LuotKham = rowData["ID_LuotKham"]; //alert(ID_LuotKham);
+		date_NgayGioHenTraKQ = $("#datepicker2").val();
+		time_NgayGioHenTraKQ = $("#timepicker2").val(); 
+		date_NgayGioTraKQ =   $("#datepicker1").val();
+		time_NgayGioTraKQ = $("#timepicker1").val(); 
+		if($('#datepicker1').val()==''&&rowData['NgayGioTraKQ']!='')
+		$.post('pages.php?module=<?= $modules ?>&view=<?= $view ?>&action=data_hentrakq_update&ID_LuotKham='+ID_LuotKham+
+																											'&date_NgayGioHenTraKQ='+date_NgayGioHenTraKQ+
+																											'&time_NgayGioHenTraKQ='+time_NgayGioHenTraKQ+
+																											'&date_NgayGioTraKQ='+date_NgayGioTraKQ+
+																											'&time_NgayGioTraKQ='+time_NgayGioTraKQ
+																											).done(function(data)
+		{ //alert(data);
+			if ($.trim(data) == '') {
+				tooltip_message("<?php get_text1("sua_thanhcong") ?>");
+				$('#rowed3').setGridParam({loadonce: false, datatype: "json"}).trigger('reloadGrid');
+			}
+			else {
+				tooltip_message("<?php get_text1("sua_khongthanhcong") ?>");
+			}
+		});
+		
+		
+		
+		$("#edit").button("enable");		
+		$('#save,#clear1,#clear2,#get_datetime').button("disable");
+		}
+	});	
+
+}
+
+function clear()
+{
+		$("#clear1").bind("click", function(e) { 			  	
+			$('#datepicker1').val("");
+			$('#timepicker1').val("");						
+		}).removeClass("ui-state-disabled");
+		$("#clear2").bind("click", function(e) { 			  	
+			$('#datepicker2').val("");
+			$('#timepicker2').val("");						
+		}).removeClass("ui-state-disabled");
+		$("#get_datetime").bind("click", function(e) { 	
+			get_date_time()				
+		}).removeClass("ui-state-disabled");
+		
+		
+	
+}
+function clear1()
+{
+		$("#datepicker1").attr("disabled", "disabled");
+		$("#datepicker2").attr("disabled", "disabled");
+		$("#timepicker1").attr("disabled", "disabled");
+		$("#timepicker2").attr("disabled", "disabled");	
+	
+}
+
+function get_date_time()
+{
+	$("#get_datetime").bind("click", function(e) { 
+				var d = new Date();
+				var curr_hour = d.getHours();
+				var curr_minute = (d.getMinutes()<10?'0':'') + d.getMinutes(); //phút trả về 1 chữ số nếu bé hơn mười nên phải ghép 0 vào
+				var curr_time = curr_hour + ":" + curr_minute;		
+				var dd = d.getDate();
+				var mm = d.getUTCMonth()+1;//January is 0!`
+				var yyyy = d.getFullYear();	
+				$('#datepicker1').val(dd+"-"+mm+"-"+yyyy);
+				$('#timepicker1').val(curr_time);	
+			
+		})
+}
+</script>

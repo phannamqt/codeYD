@@ -1,0 +1,4 @@
+﻿
+dm_loailich=Danh mục loại lịch
+tenloailich=Tên loại lịch
+chamcong=Chấm công

@@ -1,0 +1,4 @@
+﻿TenPhongBan=Tên phòng ban
+ThuocPhongBan=Thuộc phòng ban
+MoTa=Mô Tả
+DienThoai=Điện thoại

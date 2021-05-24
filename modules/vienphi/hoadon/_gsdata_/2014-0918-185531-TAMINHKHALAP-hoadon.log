@@ -1,0 +1,20 @@
+2014-09-18 18:55:31: -- hoadon: ANALYSIS started by User on 'TAMINHKHALAP' (GoodSync 9.8.1.1)
+2014-09-18 18:55:31: gstp://serverdb.ahkhinmat.goodsync/file:///D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon [TmpDest] <=PropDels= D:\xampp\htdocs\giaidoan2\modules\vienphi\hoadon (D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon) [TmpDest], ReconnectSecs=120
+2014-09-18 18:55:32: L: Files: 12 (excluded ). Folders:  (excluded 1). SERVERDB D: NTFS, Free: 59,1 GB, Total: 132 GB
+2014-09-18 18:55:32: R: Files: 12 (excluded ). Folders:  (excluded 1). D: NTFS, Free: 117 GB, Total: 166 GB
+2014-09-18 18:55:32: Changes: 4, Conflicts: , CopyTime: , CopyState: /, Errors: 
+2014-09-18 18:55:32: Right to Left: Copy File: 4 
+2014-09-18 18:55:32: -- Analysis Completed. Time 00:00:01, Speed: 13 files/s
+2014-09-18 18:55:32: 
+2014-09-18 18:55:36: serverdb.ahkhinmat.goodsync is on local network, trying direct connect at 192.168.1.200:33333
+2014-09-18 18:55:36: == hoadon: SYNC started by User on 'TAMINHKHALAP'
+2014-09-18 18:55:36: gstp://serverdb.ahkhinmat.goodsync/file:///D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon [TmpDest] <=PropDels= D:\xampp\htdocs\giaidoan2\modules\vienphi\hoadon (D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon) [TmpDest], ReconnectSecs=120
+2014-09-18 18:55:36: Copy Over 'D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/controller_luuHoaDon.php' -> 'gstp://serverdb.ahkhinmat.goodsync/file:///D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/controller_luuHoaDon.php'
+2014-09-18 18:55:37: Copy Over 'D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/data_ThongTinHoaDon.php' -> 'gstp://serverdb.ahkhinmat.goodsync/file:///D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/data_ThongTinHoaDon.php'
+2014-09-18 18:55:37: Copy Over 'D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/HDChiTiet.php' -> 'gstp://serverdb.ahkhinmat.goodsync/file:///D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/HDChiTiet.php'
+2014-09-18 18:55:37: Copy Over 'D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/index.php' -> 'gstp://serverdb.ahkhinmat.goodsync/file:///D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/index.php'
+2014-09-18 18:55:37: Save State File gstp://serverdb.ahkhinmat.goodsync/file:///D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/_gsdata_/_file_state_v4._gs
+2014-09-18 18:55:37: Save State File D:/xampp/htdocs/giaidoan2/modules/vienphi/hoadon/_gsdata_/_file_state_v4._gs
+2014-09-18 18:55:37: Items Synced OK: 4, Errors: 
+2014-09-18 18:55:37: == Sync Completed. Time: 00:00:01, Speed: 58,5 KB/s
+2014-09-18 18:55:37: 

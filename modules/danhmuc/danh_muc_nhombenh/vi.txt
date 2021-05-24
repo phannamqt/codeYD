@@ -1,0 +1,4 @@
+﻿
+dm_nhombenh=Danh mục nhóm bệnh
+tennhombenh=Tên Nhóm Bệnh
+nhombenhcha=Nhóm Bệnh Cha

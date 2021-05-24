@@ -1,0 +1,22 @@
+﻿
+dm_thuoc=Danh mục thuốc
+mathuoc=Mã Thuốc
+tenbietduoc=Tên Biệt Dược
+tengoc=Tên Gốc
+tenhoadon=Tên Hóa Đơn
+tenkhac=Tên Khác
+hoatchatchinh=Hoạt Chất Chính
+hamluong=Hàm Lượng
+nuocsanxuat=Nước Sản Xuất
+nhomthuoc=Nhóm Thuốc
+nhombenh=Nhóm Bệnh
+DVT_quydoi=Đơn vi tính qui đổi
+duongdung=Đường Dùng
+soluong_quydoi=Số Lượng Qui Đổi
+DVT=Đơn Vị Tính
+tonkhotoithieu=Tồn Kho Tối Thiểu
+ghichu=Ghi Chú
+la_thuoc=Là Thuốc
+douutien=Độ Ưu Tiên
+thuocBHYT=Thuốc BHYT
+BHYT_noitru=BHYT Nội Trú

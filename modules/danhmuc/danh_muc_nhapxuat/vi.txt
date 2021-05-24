@@ -1,0 +1,4 @@
+﻿
+dm_nhapxuat=Danh mục nhập xuất
+manhapxuat=Mã nhập xuất
+tennhapxuat=Tên loại nhập xuất

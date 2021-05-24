@@ -1,0 +1,11 @@
+
+DSXH_lamsang=DS Xếp Hàng LS
+phanloai=Phân loại
+loaikham=Tên loại khám
+gioden=Giờ đến
+trangthai=Trạng thái
+giohenKQ=Giờ hẹn KQ
+DSXH_lamsang_dangkham=DS Xếp Hàng LS- Đang khám
+DS_BN_hoantat=DS BN Hoàn tất
+BsKham=BS khám
+BNDangKham=BN đang khám

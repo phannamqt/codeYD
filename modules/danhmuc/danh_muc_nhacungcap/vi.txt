@@ -1,0 +1,12 @@
+﻿
+
+dm_NCC=Danh mục nhà cung cấp
+tenNCC=Tên NCC
+ID_NhomCC=ID nhóm NCC
+maVT=Mã viết tắt
+diachi=Địa chỉ
+dienthoai=Điện thoại
+sotaikhoan=Số tài khoản
+idNganHang=ID ngân hàng
+nguoiLienHe=Người liên hệ
+diachiNguoiLienHe=Địa chỉ người liên hệ

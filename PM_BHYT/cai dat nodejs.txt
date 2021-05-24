@@ -1,0 +1,23 @@
+
+-cai dat node phien ban (phien ban moi se loi)
+https://nodejs.org/download/release/v0.12.0/
+
+-chay cac dong lenh
+npm install pm2 -g
+npm install pm2-windows-startup -g
+pm2-startup install
+
+-khoi dong cac module
+Buoc 1:
+D:
+Buoc 2:
+cd xampp\htdocs\giaidoan2\modules\node
+Buoc 3:
+pm2 start server.js -- danh muc icd thuoc
+pm2 start DanhSachAll.js --danh sach 2 xep hang 
+pm2 start bhyt_new.js --xuat bhyt tu dong
+
+
+-Luu cau hinh khoi dong voi win
+pm2 save
+

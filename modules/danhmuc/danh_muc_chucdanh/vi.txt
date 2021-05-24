@@ -1,0 +1,13 @@
+﻿
+dm_chucdanh=Danh mục chức danh
+tenchucdanh=Tên chức danh
+viettat=Viết tắt
+mota=Mô tả
+bacsy=Bác sĩ
+dieuduong=Điều dưỡng
+ysy=Y sỹ
+yta=Y tá
+nuhosinh=Nữ hộ sinh
+ktv=KTV
+letan=Lễ tân
+duocsy=Dược sỹ
