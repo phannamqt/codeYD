@@ -1,7 +1,7 @@
 <?php
 $data= new SQLServer;
 $params = array( $_GET["idbenhnhan"],0,'HuyBo',$_SESSION["user"]["id_user"]); 
-$store_name="{call Gd2_Kham_SelectKhamLS_BenhNhan(?,?,?,?)}";
+$store_name="{call MED_Kham_GetKhamLamSangBenhNhan(?,?,?,?)}";
 $get_danh_muc_phong_ban=$data->query( $store_name,$params);
 $excute= new SQLServerResult($get_danh_muc_phong_ban);
 $tam= $excute->get_as_array();

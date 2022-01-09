@@ -1,7 +1,7 @@
 <?php
 $data= new SQLServer;
 $params = array($_GET["id_luotkham"]);
-$store_name="{call GD2_Kham_Select_ICD10(?)}";
+$store_name="{call MED_Kham_GetDanhSachICD10(?)}";
 $get_danh_muc_phong_ban=$data->query( $store_name,$params);
 $responce=new stdClass;
 $excute= new SQLServerResult($get_danh_muc_phong_ban);

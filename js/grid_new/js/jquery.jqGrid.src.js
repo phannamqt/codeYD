@@ -11744,9 +11744,9 @@ $.jgrid.extend({
 						if(!grp.groupText[i]) {
 							grp.groupText[i] = '{0}';
 						}
-						if( typeof grp.groupColumnShow[i] !== 'boolean') {
+						/* if( typeof grp.groupColumnShow[i] !== 'boolean') {
 							grp.groupColumnShow[i] = true;
-						}
+						} */
 						if( typeof grp.groupSummary[i] !== 'boolean') {
 							grp.groupSummary[i] = false;
 						}

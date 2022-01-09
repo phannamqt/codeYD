@@ -95,7 +95,7 @@ label.css-label {
         <td style=" width:30%; text-align:center;"><strong>Mẫu số: 01/BV</strong></td>
     </tr>
      <tr>
-    	<td style=" width:70%; text-align:left;"><strong>Cở sở khám,chữa bệnh: PHÒNG KHÁM ĐA KHOA Y ĐỨC HEALTHCARE</strong></td>
+    	<td style=" width:70%; text-align:left;"><strong>Cở sở khám,chữa bệnh: PHÒNG KHÁM ĐA KHOA QUỐC TẾ Y ĐỨC</strong></td>
         <td style=" width:30%; text-align:center;"><strong>Số khám bệnh</strong></td>
     </tr>
       <tr>
@@ -318,7 +318,7 @@ Số tiền Quỹ BHYT thanh toán: <strong><?=number_format($bhyt[count($bhyt)-
 	<?=$thongtinbhyt[0]['NgayThanhToan']?><br />
 	KẾ TOÁN VIỆN PHÍ<br />
 	(ký,ghi rõ họ tên)<br /><br /><br /><br />
-	<strong>Dương Thị Thu Thảo</strong><br /><br />
+	<strong>NGUYỄN THỊ NA</strong><br /><br />
 	</td>
 	<td style="text-align:center;border:none; vertical-align: top;"><br />
 	Ngày.....tháng.....năm.....<br />

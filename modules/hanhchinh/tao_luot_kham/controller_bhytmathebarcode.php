@@ -1,6 +1,6 @@
 <?php
  
-     $Post=  array(
+  $Post=  array(
     'username' => '48202_BV',
     'password' => '2c3513de35d539f706e913c3f446f8a4'              
   );
@@ -39,7 +39,7 @@
   curl_setopt($soap_do, CURLOPT_POSTFIELDS, http_build_query($Post));
   $response = curl_exec($soap_do); 
   curl_close($soap_do);
-  print_r($response);  
+  print_r($response);
   /*
  if($_POST['maThe']=="DN4111111111111"){
 	  print_r  (('{"maKetQua":"000","hoTen":"","gioiTinh":"","diaChi":"","maDKBD":"","cqBHXH":"","gtTheTu":"","gtTheDen"

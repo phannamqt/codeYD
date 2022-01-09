@@ -2843,6 +2843,7 @@ function CheckUpdate_KhoaHoSo($idluotkham,$idbennhan,$iduser) {
 
 
 function HeaderReportA4($input="") {
+	$_SESSION["com"]["TenBenhVien"]= "PKĐK QUỐC TẾ Y ĐỨC";
 	?>
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;font-family:Arial, Helvetica, sans-serif;">
 	<tr style="font-size:10px; padding-top:10px;">
@@ -2869,6 +2870,7 @@ function HeaderReportA4($input="") {
 }
 
 function HeaderReportInNhiet($input="") {
+	$_SESSION["com"]["TenBenhVien"]= "PKĐK QUỐC TẾ Y ĐỨC";
 	?>
 	 <table width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;font-family:Arial, Helvetica, sans-serif;">
          <tr style="font-size:10px;">
@@ -2886,6 +2888,7 @@ function HeaderReportInNhiet($input="") {
 }
 
 function HeaderReportInNhietReturn($input="") {
+	$_SESSION["com"]["TenBenhVien"]= "PKĐK QUỐC TẾ Y ĐỨC";
 	$kq='
 	 <table width="100%" border="0" cellpadding="0" cellspacing="0" style="width:100%;font-family:Arial, Helvetica, sans-serif;">
          <tr style="font-size:10px;">

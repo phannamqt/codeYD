@@ -237,13 +237,9 @@ th.ui-th-column div {
 </tr>
 <tr>
 <tr>                
-<td align="right"><label for="Id_GoiBenh">Id_GoiBenh</label> </td>
-<td><input id="Id_GoiBenh" name="Id_GoiBenh" style="width:110px"  type="text"></td>    
-</tr>
-<td align="right"><label>QH gia đình</label></td>
-<td> <!--<textarea id="ghichu" lang="end" name="ghichu" style="width:110px"></textarea>-->
-<button id="qh-ic" name="qh-ic"><span class="ui-icon ui-icon-circle-plus" ></span></button>
-</td>    
+<td align="right"><label for="SoChungChiHanhNghe">Số CCHN</label> </td>
+<td><input id="SoChungChiHanhNghe" name="SoChungChiHanhNghe" style="width:110px"  type="text"></td>    
+</tr>  
 </tr>
 </table>    
 </div>
@@ -273,20 +269,12 @@ th.ui-th-column div {
 <td align="right"><label for="username">Username</label> </td>
 <td><input id="username" name="username"  type="text"></td>               		
 </tr>  
-
-<tr>
-<td align="right"><label for="chamcong">Chấm công</label></td>
-<td><button id="chamcong-ic" name="chamcong-ic"><span class="ui-icon ui-icon-circle-plus" ></span></button></td>               		
-</tr>   
+ 
 </table>
 </div>
 <div class="column">
 <table> 
-
-<tr>                
-<td align="right"><label for="CoTinhLuongKeToan" >Thưởng tết theo công thức</label> </td>
-<td><input type='checkbox' id="CoTinhLuongKeToan" value="1" name="CoTinhLuongKeToan"></td>  
-</tr>
+ 
 <tr>
 <td align="right"><label for="nghiviec" >Đã nghỉ việc</label></td>
 <td> <input type="checkbox" id="nghiviec" value="1" name="nghiviec"></td>               		
@@ -339,12 +327,7 @@ th.ui-th-column div {
 </table>
 </div>
 
-</div>
-
-
-
-
-
+</div> 
 
 
 <div id="dialog-qhgd" title="Thêm bản ghi" style="display:none">
@@ -969,7 +952,9 @@ displayTotalsRow: false,
      var NoiCapCMND=  rowdata.NoiCapCMND;
      var Id_chuyenkhoa=  rowdata.Id_chuyenkhoa;
      var Id_TinhTrangHonNhan=  rowdata.Id_TinhTrangHonNhan;		
-     var Id_GoiBenh=  rowdata.Id_GoiBenh;      
+     var Id_GoiBenh=  rowdata.Id_GoiBenh;
+	 
+	  var SoChungChiHanhNghe=  rowdata.SoChungChiHanhNghe;
 
 
      $('#NgayNghiViec').val(NgayNghiViec);			
@@ -1042,6 +1027,7 @@ displayTotalsRow: false,
    $("#NgayNghiViec").val(unixtimetostring('','',NgayNghiViec,'',''));
    $("#Id_chuyenkhoa").val(Id_chuyenkhoa);
    $("#Id_TinhTrangHonNhan").val(Id_TinhTrangHonNhan);
+   $("#SoChungChiHanhNghe").val(SoChungChiHanhNghe);
    if(gioitinh=="1"){
     $("#nam").prop('checked',true);
     $("#nu").prop('checked',false);

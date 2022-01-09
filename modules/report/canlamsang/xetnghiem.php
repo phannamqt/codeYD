@@ -72,6 +72,7 @@ pre {
              $HinhChuKy="";
 			 $NguoiDuyet="";
           }
+		
 
        // print_r($thongtinluotkham[0]['NguoiDuyet']);
     ?>

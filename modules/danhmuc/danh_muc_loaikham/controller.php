@@ -139,8 +139,8 @@ function add($store_name){
 	if(trim($_POST['GiaBaoHiem'])==''){
 		$_POST['GiaBaoHiem']=0;
 	} 
-		$_POST['Khhaovtyt']=0;  
-		$_POST['Khhaodv']=0; 
+	$_POST['Khhaovtyt']=0;  
+	$_POST['Khhaodv']=0; 
 	if(trim($_POST['GiaKSKCT'])==''){
 		$_POST['GiaKSKCT']=0;
 	} 
@@ -210,8 +210,8 @@ function add($store_name){
 		trim($_POST['STTBaoHiem']," "),
 		trim($_POST['MaSoBH']," "),
 		null,//trim($_POST['ID_NhomLSP_hidden']," "),
-		$_POST['Khhaovtyt'],
-		$_POST['Khhaodv'],
+		0,//$_POST['Khhaovtyt'],
+		0,//$_POST['Khhaodv'],
 		$_POST['TruongHopBHYT_hidden'],
 		$IsHoTro, 
 		$_POST['Loai_hidden'],   
@@ -228,15 +228,17 @@ function add($store_name){
 		array(&$check1, SQLSRV_PARAM_OUT,SQLSRV_PHPTYPE_INT)
 
 	);
+	print_r($params);
 	$TaoInputStore=TaoInputStore($params);       
 	$store_name="{call MED_DM_LoaiKham_Insert $TaoInputStore}";	
 	$get=$data->query( $store_name, $params);
-	if(isset($_POST['pb'])){  
+	/* if(isset($_POST['pb'])){  
 		foreach ($_POST['pb'] as $key => $value) {          
 			$params1=array($value['ID_PhongBan'],$check1,$value['GhiChu'],$value['IsUsing'],$_SESSION['user']['id_user']);
 			$store_name1="{call GD2_PhongBan_LoaiKham_Insert (?,?,?,?,?)}";
 			$get2=$data->query( $store_name1, $params1);
-		}};
+		}
+	};
 		if(isset($_POST['ts'])){  
 			foreach ($_POST['ts'] as $key => $value) {			
 				$params2=array($check1
@@ -270,7 +272,7 @@ function add($store_name){
 				$get3=$data->query( $store_name2, $params2);
 				echo ';'.$get3.';;';
 			}
-		};
+		}; */
 
 	}
 	function edit($store_name){

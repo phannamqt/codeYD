@@ -174,18 +174,14 @@ body{
 
 
 </html>
- <script type="text/javascript">
+<script type="text/javascript">
+	$(document).ready(function() {
+	$('.thanhtien').html(toWords((<?=$thongtinbenhnhan[0]["tong"]?>).toString())+" đồng");
 
-
-    $(document).ready(function() {
-		$('.thanhtien').html(toWords((<?=$thongtinbenhnhan[0]["tong"]?>).toString())+" đồng");
-
-		if($.cookie("in_status")=="print_preview"){
-					print_preview();
-		 }else if($.cookie("in_status")=="print_direct"){
-
-						print_direct(10,10);
-			 }
-
+	if($.cookie("in_status")=="print_preview"){
+		print_preview();
+	}else if($.cookie("in_status")=="print_direct"){
+		print_direct(10,10);
+	}
 	})
-		</script>
+</script>

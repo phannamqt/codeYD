@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="css/expand_menu.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="js/select_input/select2.css" />
-<script src="../his/nodejs/node_modules/socket.io-client/dist/socket.io.js"></script>
+<script src="PM_BHYT/node_modules/socket.io-client/dist/socket.io.js"></script>
 <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
 <!--<script type="text/javascript" src="js/jquery.printPage.js"></script> -->

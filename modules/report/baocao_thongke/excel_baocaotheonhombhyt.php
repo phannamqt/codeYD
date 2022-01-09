@@ -18,7 +18,7 @@
 	}else{
 		$den_ngay=date("Y-m-d").' 23:59:59';
 	}
-	$store_name="{call MED_TrichXuatChiTietDichVu_New (?,?)}";
+	$store_name="{call MED_TrichXuatChiTietDichVuTheoNhom (?,?)}";
 	$params = array($tu_ngay,$den_ngay);
 	 // print_r($params);
 	// exit(); 
@@ -31,7 +31,7 @@
 		if($i%2!=0)
 			$dskey[]= $key[$i]; 
 	} 
-	$store_name_cls="{call MED_GetAllCLSAndThuoc ()}";
+	$store_name_cls="{call MED_GetAllNhomBHYT ()}";
 	$params_cls = array();
 	$get_cls=$data->query( $store_name_cls, $params_cls); 
 	$excute_cls= new SQLServerResult($get_cls); 
@@ -47,37 +47,7 @@
 		$rs=explode("__",$ID_DV);
 		global $dskey_cls;
 		return $dskey_cls[$rs[0]];
-	}
-	
-	function getGroup(){
-		global $dskey;
-		$tam2='';
-		$dem=0;
-		$span=0;
-		$label='';
-		$labelshow='';
-		for($j=14;$j<count($dskey);$j++){
-			$rs=explode("__",$dskey[$j]);
-			$dem++ ; 
-			if($j>=14 && $tam2!=$rs[1]){
-				$label=$tam2;
-				$span=$dem;
-				$dem=0;
-			}
-			if($tam2!='' && ($dem==0 || ($j+1)==count($dskey)) ){
-				if(($j+1)==count($dskey)){
-					$label=$tam2;
-					$span=$dem+1;
-				}
-					
-				echo "<th style='padding:3px;' colspan=".$span.">".$label."</th>";
-			}
-			$tam2=$rs[1];
-			
-			
-		}
-		
-	}
+	} 
 	 
 ?>
 <style type="text/css">
@@ -102,10 +72,7 @@
 	<tr>
 		<th colspan=<?=count($dskey)-2?>>Thống kê dữ liệu từ ngày <?=$_GET["tu_ngay"]?> đến ngày <?=$_GET["den_ngay"]?></th>
 	</tr>
-	<tr>
-		<th colspan=12>Thông tin hành chính</th>
-		<?=getGroup()?>
-	</tr>
+ 
        <tr> 
 			<th  style=" padding:3px;"  >STT</th>
 			<th  style=" padding:3px;"  >MA_BN</th>
@@ -116,14 +83,12 @@
 			<th  style=" padding:3px;"  >DIA_CHI</th>
 			<th  style=" padding:3px;"  >MA_THE</th>
 			<th  style=" padding:3px;"  >DOI_TUONG</th>
-			<th  style=" padding:3px;"  >NGAY_GIO_VAO_KHAM</th>
-			<th  style=" padding:3px;"  >NGUOI_CHI_DINH</th>
-			<th  style=" padding:3px;"  >NGUOI_THUC_HIEN</th>
+			<th  style=" padding:3px;"  >NGAY_GIO_VAO_KHAM</th> 
 	 
 		   <?php
-			for($i=14;$i<count($dskey);$i++){
+			for($i=12;$i<count($dskey);$i++){
 		   ?>
-		   <th style=" padding:3px;"   ><?=getTen($dskey[$i])?></th>
+		   <th style=" padding:3px;"   ><?=($dskey[$i])?></th>
 		   <?php }?>
 		</tr> 
 
@@ -148,10 +113,8 @@
 		echo "<td >".$row['DIA_CHI']."</td>";
 		echo "<td >".$row['MA_THE']."</td>";
 		echo "<td >".$row['LoaiDoiTuongKham']."</td>";
-		echo "<td >".$row['ThoiGianVaoKham']."</td>";
-		echo "<td >".$row['HoTenNguoiChiDinh']."</td>";
-		echo "<td >".$row['HoTenNguoiThucHien']."</td>";
-		for($j=14;$j<count($dskey);$j++){
+		echo "<td >".$row['ThoiGianVaoKham']."</td>"; 
+		for($j=12;$j<count($dskey);$j++){
 			echo "<td style='padding:3px;'>".(float)$row[$dskey[$j]]."</td>"; 
 		}
 		echo "</tr>";
@@ -162,9 +125,9 @@
 </body>
 </html>
 <?php 
-	  if($types=="excel"){
-		  file_put_contents('excel/temp.html', ob_get_contents());
-		  $exp=new ExportToExcel();
-		  $exp->exportWithPage("excel/temp.html","ThongKeDoanhThuThucHienTheoNhanVien.xls");
-	 }
+	if($types=="excel"){
+		file_put_contents('excel/temp.html', ob_get_contents());
+		$exp=new ExportToExcel();
+		$exp->exportWithPage("excel/temp.html","ChiTietDichVuTheoNhom.xls");
+	}
 	?>

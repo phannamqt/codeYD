@@ -1,134 +1,135 @@
-			var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-			var eventer = window[eventMethod];
-			var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-			eventer(messageEvent,function(e) {				 
-				tam=e.data.split(";");					 
-				//alert(tam);		
-				switch (tam[0])
-{
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+eventer(messageEvent,function(e) {
+	var tam='';
+	if(typeof e.data !== 'undefined'){
+		tam=e.data.toString().split(";");
+	}
 	
+	switch (tam[0])
+	{
+		case 'luudongtab':
+			luu_dongtab()
+		break;
+		case 'trathuoc':
+		 trathuoc()
+		break;
+		case 'tamung':
+		 tamung_noitru()
+		break;
+		case 'tamung':
+		 tamung()
+		break;
+		case 'hoanung':
+		 hoanung()
+		break;	
+		case 'thutrano_add':
+		 thutrano_add()
+		break;
+		case 'thutrano_edit':
+		 thutrano_edit()
+		break;
+		case 'molichcanhan':
+		 molichcanhan()
+		break;
+		case 'addbenhnhan':
+		  addbenhnhan()
+		break;
+		case 'hosobenhnhantrong':
+		  hosobenhnhantrong();
+		break;
+		case 'datlichhen':
+		 datlichhen();
+		break;
+		case 'editbenhnhan':
+		  editbenhnhan();
+		break;
+		case 'taoluotkham':
+		  taoluotkham();
+		break;
+		case 'themmoibn_thanhcong':
+		  themmoibn_thanhcong();
+		break;
+		case 'taoluotkham_thanhcong':
+		  taoluotkham_thanhcong();
+		break;
+		case 'molichsudauhieusinhton':
+		  molichsudauhieusinhton();
+		break;
+		case 'dong_popup':
+		  dong_popup();
+		break;
+		case 'chidinhkham':
+		  chidinhkham();
+		break;
+		case 'benhan':
+		  benhan();
+		break;
+		case 'edit_images':
+		  edit_images();
+		break;
+		case 'canlamsang':
+		  canlamsang();
+		break;
+		case 'dieutriphoihop':
+		  dieutriphoihop();
+		break;
+		case 'dsdauhieusinhton':
+		  dsdauhieusinhton();
+		break;
+		case 'changetitle':
+		  changetitle();
+		  break;
+		case 'opentab':
+		  opentab();
+		  break;
+		case 'editluotkham':
+		  editluotkham();
+		break;
+		case 'chitiethangmuckham':
+		  chitiethangmuckham();
+		break;
+		case 'in_an':
+		  in_an();
+		break; 
+		case 'open_idluotkham':
+		  open_tabmutil('idluotkham');
+		break;   
+		case 'open_idbenhnhan':
+		  open_tabmutil('idbenhnhan');
+		break; 
+		case 'open_idkham':
+		  open_tabmutil('idkham');
+		break; 
+		case 'benhan_luotkham':
+		  benhan_luotkham();
+		break; 
+		case 'upload_module':
+		  upload_module();
+		break; 
+		case 'close_upload':
+		  close_upload();
+		break; 
+		case 'hide_upload':
+		  hide_upload();
+		break; 
+		case 'hide_close':
+		  hide_close();
+		break; 
+		case 'post_message':
+		  post_message();
+		break; 
 
-case 'luudongtab':
- 	luu_dongtab()
-break;
-case 'trathuoc':
- trathuoc()
-break;
-case 'tamung':
- tamung_noitru()
-break;
-case 'tamung':
- tamung()
-break;
-case 'hoanung':
- hoanung()
-break;	
-case 'thutrano_add':
- thutrano_add()
-break;
-case 'thutrano_edit':
- thutrano_edit()
-break;
-case 'molichcanhan':
- molichcanhan()
-break;
-case 'addbenhnhan':
-  addbenhnhan()
-break;
-case 'hosobenhnhantrong':
-  hosobenhnhantrong();
-break;
-case 'datlichhen':
- datlichhen();
-break;
-case 'editbenhnhan':
-  editbenhnhan();
-break;
-case 'taoluotkham':
-  taoluotkham();
-break;
-case 'themmoibn_thanhcong':
-  themmoibn_thanhcong();
-break;
-case 'taoluotkham_thanhcong':
-  taoluotkham_thanhcong();
-break;
-case 'molichsudauhieusinhton':
-  molichsudauhieusinhton();
-break;
-case 'dong_popup':
-  dong_popup();
-break;
-case 'chidinhkham':
-  chidinhkham();
-break;
-case 'benhan':
-  benhan();
-break;
-case 'edit_images':
-  edit_images();
-break;
-case 'canlamsang':
-  canlamsang();
-break;
-case 'dieutriphoihop':
-  dieutriphoihop();
-break;
-case 'dsdauhieusinhton':
-  dsdauhieusinhton();
-break;
-case 'changetitle':
-  changetitle();
-  break;
-case 'opentab':
-  opentab();
-  break;
-case 'editluotkham':
-  editluotkham();
-break;
-case 'chitiethangmuckham':
-  chitiethangmuckham();
-break;
-case 'in_an':
-  in_an();
-break; 
-case 'open_idluotkham':
-  open_tabmutil('idluotkham');
-break;   
-case 'open_idbenhnhan':
-  open_tabmutil('idbenhnhan');
-break; 
-case 'open_idkham':
-  open_tabmutil('idkham');
-break; 
-case 'benhan_luotkham':
-  benhan_luotkham();
-break; 
-case 'upload_module':
-  upload_module();
-break; 
-case 'close_upload':
-  close_upload();
-break; 
-case 'hide_upload':
-  hide_upload();
-break; 
-case 'hide_close':
-  hide_close();
-break; 
-case 'post_message':
-  post_message();
-break; 
+		case 'motab_chung':
+		  motab_chung();
+		break; 
 
-case 'motab_chung':
-  motab_chung();
-break; 
+		case 'close_tab':
+		 close_tab();
+		break; 
 
-case 'close_tab':
- close_tab();
-break; 
-
-}
+	}
 function close_upload(){	
 	$("#dialog_"+tam[1]).fadeOut(200, function() {
 		$("#dialog_"+tam[1]).remove();	

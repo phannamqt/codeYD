@@ -2,12 +2,19 @@
 <?php
 
 	if(
-		($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']!='192.168.1.5/medsmart/index.php') 
-		&& (  
-			(!isset($_SESSION["user"]["login"]) && !isset($_GET["access"]))
-		)){
-			die("Access is denied");
-		} 
+		$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']!='192.168.1.5/medsmart/index.php' &&
+		!isset($_SESSION["user"]["login"]) && 
+		!isset($_GET["access"])
+	){
+		die("Access is denied");
+	}elseif($_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']!='192.168.1.5/medsmart/index.php'){
+		if (empty($_SERVER['HTTP_X_FORWARDED_PROTO']) || $_SERVER['HTTP_X_FORWARDED_PROTO'] === "http") {
+			$location = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+			header('HTTP/1.1 301 Moved Permanently');
+			header('Location: ' . $location);
+			exit;
+		}
+	}
  
 
 ?>
@@ -29,7 +36,7 @@
 <script src="js/expandmenu.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/tiny_scroll/js/jquery.tinyscrollbar.min.js"></script>
 <script type="text/javascript" src="js/jwerty/jwerty.js"></script>
-<script type="text/javascript" src="js/message.js?n=5"></script>
+<script type="text/javascript" src="js/message.js?ver=1.0.2"></script>
 <script type="text/javascript" src="js/globalize/globalize.js"></script>
 <script type="text/javascript" src="js/globalize/globalize.culture.de-DE.js"></script>
 <script type="text/javascript" src="js/globalize/jquery.mousewheel.js"></script>
@@ -100,7 +107,7 @@ include("class/basic_function.php");
     margin: 0.4em 0.2em 0 0;
 }
 #tabs iframe{
-	width:1352px;
+	width:100%;
 	border:none;
 	margin-top:10px;
 	/*border:1px solid #000;

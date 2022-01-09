@@ -93,13 +93,16 @@ Số ngày bảo hiểm:<input id="inputTongNgayBaoHiem">
 	<label  style="font-weight:bold">đến giờ</label> 
 	<input type="text" id="dengio" value="00:00" style="text-align:center;width:30px"/>
 	</div>
-	<button style="margin-left:1px" id='btn_exceltong'>Xuất excel theo nhân viên</button> 
-	<button style="margin-left:1px" id='btn_excel79a'>Xuất excel 79A</button>
-	<button style="margin-left:1px" id='Excel19'>Xuất excel 19</button>
-	<button style="margin-left:1px" id='Excel20'>Xuất excel 20</button>
-	<button style="margin-left:1px" id='Excel21'>Xuất excel 21</button>
-	<button style="margin-left:1px" id='Excel1094'>Xuất excel 1094</button>
+	<button style="margin-left:1px" id='btn_exceltong'>Xuất theo nhân viên</button>
+	<button style="margin-left:1px" id='btn_excel79a'>Xuất 79A</button>
+	<button style="margin-left:1px" id='Excel19'>Xuất 19</button>
+	<button style="margin-left:1px" id='Excel20'>Xuất 20</button>
+	<button style="margin-left:1px" id='Excel21'>Xuất 21</button>
+	<button style="margin-left:1px" id='Excel1094'>Xuất 1094</button>
 	<button style="margin-left:1px" id='ExcelDungTuyen'>Đ.Tuyến</button>
+	<button style="margin-left:1px" id='btn_excel_baocaotheonhombhyt'>Xuất D.Thu theo nhóm</button>
+	<button style="margin-left:1px" id='btn_excel_soluongkhamnhombhyt'>Xuất SL BHYT</button>
+	
   </fieldset>
 <fieldset>
     <legend>Chỉnh sửa BH</legend> 
@@ -374,6 +377,14 @@ $(document).ready(function() {
 	})
 	$('#btn_exceltong').click(function(){
 		window.open("resource.php?module=report&view=baocao_thongke&type=excel&action=bhyt_chitiet&tu_ngay="+ $( "#tungay" ).val()+"&den_ngay="+$( "#denngay" ).val())
+	})
+	
+	$('#btn_excel_baocaotheonhombhyt').click(function(){
+		window.open("resource.php?module=report&view=baocao_thongke&type=excel&action=excel_baocaotheonhombhyt&tu_ngay="+ $( "#tungay" ).val()+"&den_ngay="+$( "#denngay" ).val())
+	})
+	
+	$('#btn_excel_soluongkhamnhombhyt').click(function(){
+		window.open("resource.php?module=report&view=baocao_thongke&type=excel&action=excel_soluongkhamnhombhyt&tu_ngay="+ $( "#tungay" ).val()+"&den_ngay="+$( "#denngay" ).val())
 	})
 	
 	$('#thanhtoan').click(function(){

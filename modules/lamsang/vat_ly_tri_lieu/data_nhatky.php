@@ -10,17 +10,16 @@ $responce = new stdClass;
 $i=0;
 
 foreach ($tam as $row) {//duyet toan bo mang tra ve
-	if($row["GioThucHien"]!='')
+	/* if($row["GioThucHien"]!='')
 		$row["GioThucHien"]=$row["GioThucHien"]->format("H:i ");
-	else $row["GioThucHien"]='';
-	if($row["NgayThucHien"]!='')
-		$row["NgayThucHien"]=$row["NgayThucHien"]->format("d/m/Y");
+	else $row["GioThucHien"]=''; */
+	if($row["GioThucHien"]!='')
+		$row["GioThucHien"]=$row["GioThucHien"]->format("H:i d/m/Y");
 	else $row["NgayThucHien"]='';
     $responce->rows[$i]['id']=$row["ID_Physiotherapydiary"];
     $responce->rows[$i]['cell']=array(	
 			$row["ID_Physiotherapydiary"], 
-			$row["GioThucHien"],
-			$row["NgayThucHien"],
+			$row["GioThucHien"], 
 			$row["ID_NguoiThucHien"],
 			$row["MoTa"],
 

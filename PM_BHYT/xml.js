@@ -38,11 +38,11 @@ async function xuat_xml(id_thutrano,duongdan){
 		})
 		.catch(err => console.log('Database Connection Failed! Bad Config: ', err))	
 		let [thongtin,thongtinthuoc,thongtincls,ChisoCLS,ChisoNoiTru] = await Promise.all([
-				Get_ThongTin(poolPromise,id_thutrano,'GD2_ThongTinLuotKhamBHYT'),
-				Get_ThongTin(poolPromise,id_thutrano,'GD2_BHYT_ngoaithuoc_quyettoan'),
-				Get_ThongTin(poolPromise,id_thutrano,'GD2_BHYT_ngoaicls_quyettoan'),
-				Get_ThongTin(poolPromise,id_thutrano,'GD2_BHYT_ChisoCLS_quyettoan'),
-				Get_ThongTin(poolPromise,id_thutrano,'GD2_BHYT_ChisoNoiTru_quyettoan'),
+				Get_ThongTin(poolPromise,id_thutrano,'MED_BHYT_ThongTinLuotKham'),
+				Get_ThongTin(poolPromise,id_thutrano,'MED_BHYT_Thuoc_NgoaiTru'),
+				Get_ThongTin(poolPromise,id_thutrano,'MED_BHYT_CLS_NgoaiTru'),
+				Get_ThongTin(poolPromise,id_thutrano,'MED_BHYT_ChiSoCLS'),
+				Get_ThongTin(poolPromise,id_thutrano,'MED_BHYT_ChiSoNoiTru'),
 			]);
 		thongtin=thongtin[0];	
 		let	ThanhTienBaoHiem= new Big(0);
@@ -78,7 +78,7 @@ async function xuat_xml(id_thutrano,duongdan){
 		await console.log(getNgayGio() + duongdan+filename+" was saved!");		
 		await poolPromise.request()
 		.input('ID_LuotKham', sql.Int, thongtin['MA_LK'])
-		.execute('GD2_BHYT_xml_DaChuyen_Update');
+		.execute('MED_BHYT_XMLUpdateDaChuyen');
 		await poolPromise.close();
 
 	} catch (err) {
@@ -93,7 +93,7 @@ async function caccachuathanhtoan(){
 		console.log(getNgayGio() + "KIEM TRA LUOT CHUA CHUYEN");
 	var connection = new sql.ConnectionPool(config, function(err) {
 		var request5  = new sql.Request(connection);
-		request5.execute('GD2_BHYT_xml_chuachuyen',async function(err, recordsets) {
+		request5.execute('MED_BHYT_XML_ChuaChuyen',async function(err, recordsets) {
 			sql.close();
 			thongtinluotkham= recordsets.recordsets[0];
 		
@@ -192,7 +192,7 @@ async function XML1_TongHop(thongtin,tongthuoc,tongvtyt,T_TONGCHI,T_BNTT,ThanhTi
 	tonghop+='<T_BHTT>'+ThanhTienBaoHiem+'</T_BHTT>';
 	tonghop+='<T_BNCCT>'+T_BNCCT+'</T_BNCCT>';
 	tonghop+='<T_NGUONKHAC>0</T_NGUONKHAC>';
-	tonghop+='<T_NGOAIDS>0</T_NGOAIDS>';
+	tonghop+='<T_NGOAIDS>'+(kiemTraDauTheHienThiThongTinT_NGOAIDS(thongtin['DAU_THE'])==true ? ThanhTienBaoHiem : 0)+'</T_NGOAIDS>';
 	tonghop+='<MA_LOAI_KCB>'+thongtin['MA_LOAI_KCB']+'</MA_LOAI_KCB>';
 	tonghop+='<NAM_QT>'+NAM_QT+'</NAM_QT>';
 	tonghop+='<THANG_QT>'+THANG_QT+'</THANG_QT>';
@@ -260,10 +260,10 @@ async function XML2_Thuoc(thongtinthuoc,thongtin) {
 			chitietthuoc+='<T_BNTT>'+thongtinthuoc[i]['T_BNTT']+'</T_BNTT>';
 			chitietthuoc+='<T_BNCCT>'+thongtinthuoc[i]['T_BNCCT']+'</T_BNCCT>';
 			chitietthuoc+='<T_BHTT>'+thongtinthuoc[i]['T_BHTT']+'</T_BHTT>';
-			chitietthuoc+='<T_NGOAIDS>0</T_NGOAIDS>';
+			chitietthuoc+='<T_NGOAIDS>'+(kiemTraDauTheHienThiThongTinT_NGOAIDS(thongtin['DAU_THE'])==true ? thongtinthuoc[i]['T_BHTT'] : 0)+'</T_NGOAIDS>';
 			chitietthuoc+='<MA_KHOA>'+thongtinthuoc[i]['MA_KHOA']+'</MA_KHOA>';
 			chitietthuoc+='<MA_BAC_SI>'+MA_BAC_SI+'</MA_BAC_SI>';
-			chitietthuoc+='<MA_BENH>'+thongtin['MA_BENH']+'</MA_BENH>';
+			chitietthuoc+='<MA_BENH>'+thongtin['TAT_CA_MA_BENH']+'</MA_BENH>';
 			chitietthuoc+='<NGAY_YL>'+custom.formatDatehour(thongtinthuoc[i]['NgayKeDon'])+'</NGAY_YL>';
 			chitietthuoc+='<MA_PTTT>0</MA_PTTT>';
 			chitietthuoc+='</CHI_TIET_THUOC>';
@@ -331,7 +331,7 @@ async function XML3_CanLamSang(thongtincls,thongtin) {
 		chitietcls+='<T_BNTT>'+thongtincls[i]['T_BNTT']+'</T_BNTT>';
 		chitietcls+='<T_BNCCT>'+thongtincls[i]['T_BNCCT']+'</T_BNCCT>';
 		chitietcls+='<T_BHTT>'+thongtincls[i]['T_BHTT']+'</T_BHTT>';
-		chitietcls+='<T_NGOAIDS>0</T_NGOAIDS>';
+		chitietcls+='<T_NGOAIDS>'+(kiemTraDauTheHienThiThongTinT_NGOAIDS(thongtin['DAU_THE'])==true ? thongtincls[i]['T_BHTT'] : 0)+'</T_NGOAIDS>';
 		if(thongtincls[i]['ID_BHYT']==15){
 			chitietcls+='<MA_GIUONG>H1</MA_GIUONG>';
 		}else{
@@ -342,7 +342,7 @@ async function XML3_CanLamSang(thongtincls,thongtin) {
 		chitietcls+='<T_TRANTT>'+thongtincls[i]['thanhtien']+'</T_TRANTT>';
 		chitietcls+='<MA_KHOA>'+MA_KHOA+'</MA_KHOA>';
 		chitietcls+='<MA_BAC_SI>'+thongtincls[i]['MA_BAC_SI']+'</MA_BAC_SI>';
-		chitietcls+='<MA_BENH>'+thongtin['MA_BENH']+'</MA_BENH>';
+		chitietcls+='<MA_BENH>'+thongtin['TAT_CA_MA_BENH']+'</MA_BENH>';
 		chitietcls+='<NGAY_YL>'+custom.formatDatehour(thongtincls[i]['NgayGio'])+'</NGAY_YL>';
 		chitietcls+='<NGAY_KQ></NGAY_KQ>';
 		chitietcls+='<MA_PTTT>0</MA_PTTT>';
@@ -438,3 +438,11 @@ function getNgayGio(){
 function addzero(input){
 	return input<10?'0'+input : input ;
 }
+
+
+function kiemTraDauTheHienThiThongTinT_NGOAIDS(input){
+	if(input=='QN' || input=='CA' || input=='CY')
+		return true;
+	return false;
+}
+

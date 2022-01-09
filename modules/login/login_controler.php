@@ -3,7 +3,7 @@
 	$password=$_GET["password"];
 	setcookie("tendangnhap", $_GET["c_tendangnhap"],time() + (10 * 365 * 24 * 60 * 60));
 	$data= new SQLServer;//tao lop ket noi SQL
-	$store_name="{call GD2_DMNHANVIEN_VALIDATE(?,?)}";//tao bien khai bao store
+	$store_name="{call MED_DMNHANVIEN_VALIDATE(?,?)}";//tao bien khai bao store
 	$params =array($username,$password);//tao param cho store
 	$get_login=$data->select_store( $store_name, $params);//Goi store
 	$excute= new SQLServerResult($get_login);//Ket noi lop xu ly SQL và truyen gia tri tra ve tu lop ket noi SQL
@@ -19,7 +19,7 @@
 			$_SESSION["user"]["id_phongban"]= $v["ID_PhongBan"];
 			$_SESSION["user"]["year_work"]= date("Y");//năm làm việc
 			$_SESSION["user"]["nickname"]= $v["NickName"];
-			$_SESSION["user"]["username"]= $v["UserName"];
+			$_SESSION["user"]["username"]= $v["username"];
 			$_SESSION["user"]["TenPhongBan"]= $v["TenPhongBan"];
 			if($v["NgonNgu"]==''){
 				$_SESSION["user"]["language"]= 1;

@@ -770,17 +770,20 @@ window.bacsi =":;"+ $.ajax({url: 'pages.php?module=web_services&function=get_aut
 	 $("#rowed4").jqGrid({
 		url:'pages.php?module=<?=$modules?>&view=<?=$view?>&action=data_nhatky',
 		datatype: "json",	
-		colNames:['ID_Phy','Giờ thực hiện','Ngày thực hiện','Người TH','Diễn biến'],
+		colNames:['ID_Phy','Ngày giờ thực hiện','Người TH','Diễn biến'],
 		colModel:[
 			{name:'ID_Phy',index:'ID_Phy',search:false,search:false, width:"1%", editable:false,align:'left',hidden:true}, 
-			{name:'GioTH',index:'GioTH',search:false,search:false, width:"10%", editable:false,align:'left',hidden:false}, 
-			{name:'NgayTH',index:'NgayTH',search:true, width:"20%", editable:true,align:'left',hidden:false,editrules: {required:true}, editoptions:{size:20, 
+			{name:'GioTH',index:'GioTH',search:false,search:false, width:"20%", editable:true,align:'left',hidden:false,editrules: {required:true},formoptions:{ rowpos:2, colpos:1}, editoptions:{size:20, dataInit: function(element) {
+	                    $(element).datetimeEntry({show24Hours: true, spinnerImage: '',datetimeFormat: 'H:M D/O/Y'});
+	            }, defaultValue: "<?php echo date('H:i d/m/Y')?>"
+            }}, 
+			/* {name:'NgayTH',index:'NgayTH',search:true, width:"20%", editable:true,align:'left',hidden:false,editrules: {required:true}, editoptions:{size:20, 
                   dataInit:function(el){ 
                         $(el).datepicker({dateFormat:'dd/mm/yy'}); 
                   },  
-                },formoptions:{ rowpos:2, colpos:1} },
-			{name:'NguoiTH',index:'NguoiTH',search:true, width:"30%", editable:true,align:'left',hidden:false,formatter:"select",edittype:"select",stype: 'select',editrules: {required:true},editoptions: { value: bacsi},formoptions:{ rowpos:1, colpos:1}}, 	
-			{name:'DienBien',index:'DienBien',search:true, width:"50%", editable:true,align:'left',hidden:false,editrules: {required:true},edittype:"textarea",formoptions:{ rowpos:3, colpos:1}}, 
+                },formoptions:{ rowpos:3, colpos:1}}, */
+			{name: 'NguoiTH',index:'NguoiTH',search:true, width:"30%", editable:true,align:'left',hidden:false,formatter:"select",edittype:"select",stype: 'select',editrules: {required:true},editoptions: { value: bacsi},formoptions:{ rowpos:1, colpos:1}}, 	
+			{name:'DienBien',index:'DienBien',search:true, width:"50%", editable:true,align:'left',hidden:false,editrules: {required:true},edittype:"textarea",formoptions:{ rowpos:4, colpos:1}}, 
 			
 			
 		],  
@@ -821,7 +824,7 @@ window.bacsi =":;"+ $.ajax({url: 'pages.php?module=web_services&function=get_aut
 		caption: "Nhật ký"
 	});	
 	$("#rowed4").jqGrid('filterToolbar',{searchOperators : false,searchOnEnter:false,defaultSearch:"cn"});
-	$("#rowed4").jqGrid('navGrid',"#prowed4",{add: permission["add"], edit: permission["edit"], del: false, search: false,closeAfterEdit: true,clearAfterAdd :true,closeOnEscape : true, bSubmit: "Submit",
+	$("#rowed4").jqGrid('navGrid',"#prowed4",{add: permission["add"], edit: permission["edit"], del: permission["delete"], search: false,closeAfterEdit: true,clearAfterAdd :true,closeOnEscape : true, bSubmit: "Submit",
      bCancel: "Cancel"}, //options						 
 		{recreateForm:true,height:'auto',width:'auto',reloadAfterSubmit:false,url:'pages.php?module=<?=$modules?>&view=<?=$view?>&action=controller&oper=edit&hienmaloi=a',closeOnEscape : true,modal: true,recreateForm: true,
 			   afterSubmit : function(response, postdata) { 
@@ -906,7 +909,21 @@ window.bacsi =":;"+ $.ajax({url: 'pages.php?module=web_services&function=get_aut
 				onClose : function(formid){
 					$("#editmodrowed4").css("box-shadow","");					
 				}
-		}, 
+		},{reloadAfterSubmit:false,url:'pages.php?module=<?=$modules?>&view=<?=$view?>&action=controller&oper=del',	navkeys : [ true, 38, 40 ],closeOnEscape : true,	
+				beforeShowForm : function(formid) {canhgiua_del(formid);},
+				afterSubmit : function(response, postdata) { 				
+							if(response.responseText==1){
+								var success=false;
+								var new_id="<?php get_text1("xoa_khongthanhcong") ?>";													
+								}else{
+								tooltip_message("<?php get_text1("xoa_thanhcong") ?>");
+								var success=true;	
+								var new_id="<?php get_text1("xoa_thanhcong") ?>";
+															
+							};						
+							return [success,new_id] ;
+				}		
+		}, // del options 
 		{reloadAfterSubmit:true,height:250,width:600,sopt: ["cn"],url:'pages.php?module=<?=$modules?>&view=<?=$view?>&action=data_ngaychuyenkhoa&q=2',closeOnEscape : true,
 				/*beforeShowSearch:function(formid){				
 				}*/ // search options		

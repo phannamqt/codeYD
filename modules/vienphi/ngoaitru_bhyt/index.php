@@ -1458,7 +1458,7 @@ function create_grid() {
     {name: 'ExtField1',index: 'ExtField1',hidden: true},
     {name: 'id_kham_dtph',index: 'id_kham',hidden: true},
     {name: 'Isbhyt',index: 'Isbhyt',hidden: true},
-    {name: 'Tongbhyt',index: 'Tongbhyt',hidden: true},
+    {name: 'Tongbhyt',index: 'Tongbhyt',width: "10%",hidden: true},
     {name: 'bhyt_hidden',index: 'bhyt_hidden',hidden: true},
     {name: 'Cungchitra_hidden',index: 'Cungchitra_hidden',hidden: true},
     {name: 'tongphaitra_hidden', index: 'tongphaitra_hidden',hidden: true}, 
@@ -1965,9 +1965,11 @@ function tinhlai(){
 	if($('#'+ids[0]+'_laythuoc').is(':checked')){
 		tongbhyt_thuoc=$("#rowed5").jqGrid('getCol', 'Tongbhyt', false, 'sum');		
 		tongbhyt_kham =$("#rowed3").jqGrid('getCol', 'Tongbhyt', false, 'sum');			
-		tongbhyt=parseInt(tongbhyt_kham)+parseInt(tongbhyt_thuoc);		
-		if(!VP && TrangThaiKham!=3 && oper=='add'){
+		tongbhyt=parseInt(tongbhyt_kham)+parseInt(tongbhyt_thuoc);
+		
+		if(!VP && oper=='add'){
 			 if(tongbhyt<=window.GioihanBHYT){	 // Dưới hạn mức BH  trả 100%
+			// alert(tongbhyt+' <= '+window.GioihanBHYT);
 				isvuotmuc=1;
 				var ids_rowed3 = $("#rowed3").getDataIDs();					
 				for(var i=0;i<ids_rowed3.length;i++){				
@@ -2265,7 +2267,7 @@ function tinhlai(){
   if(<?=$_SESSION["user"]["id_user"]?>==178){
    $.post('pages.php?module=<?=$modules?>&view=<?=$view?>&action=controller_chitiet_sua1&hienmaloi=1',datatosend).done(function(data){
     if($.trim(data)==2){
-     alert('Bill đã có lượt thanh toán sau không ');
+     alert('Bill đã có lượt thanh toán sau, vui lòng hủy bill thanh toán sau bill này trước');
    }else{
      window.oper='add';
      load_form()
@@ -2276,7 +2278,7 @@ function tinhlai(){
  }else{				
    $.post('pages.php?module=<?=$modules?>&view=<?=$view?>&action=controller_chitiet_sua&hienmaloi=1',datatosend).done(function(data){
     if($.trim(data)==2){
-     alert('Bill đã có lượt thanh toán sau không ');
+     alert('Bill đã có lượt thanh toán sau, vui lòng hủy bill thanh toán sau bill này trước');
    }else{
      window.oper='add';
      load_form()
